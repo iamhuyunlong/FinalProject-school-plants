@@ -2,6 +2,7 @@ package finalproject_plants;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 
 
@@ -11,7 +12,12 @@ import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.map.*;
+import com.baidu.mapapi.map.MapFragment;
+
 import java.nio.file.FileStore;
+import java.util.Map;
 
 import finalproject_plants.R;
 
@@ -27,12 +33,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FrameLayout ly_content;
 
-    private FirstFragment f1,f2,f3,f4;
+    private FirstFragment f1,f3,f4;
+    private MapFragment f2;
     private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SDKInitializer.initialize(getApplicationContext());
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
@@ -101,8 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 selected();
                 tabmap.setSelected(true);
                 if(f2==null){
-                    f2 = new FirstFragment();
-                    f2.set("2");
+                    f2 = new MapFragment();
                     transaction.add(R.id.fragment_container,f2);
                 }else{
                     transaction.show(f2);
