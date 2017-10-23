@@ -1,8 +1,7 @@
 package finalproject_plants;
 
-import android.app.FragmentManager;
+
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.os.Bundle;
 
 
@@ -13,19 +12,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.baidu.mapapi.SDKInitializer;
-import com.baidu.mapapi.map.*;
 import com.baidu.mapapi.map.MapFragment;
 
-import java.nio.file.FileStore;
-import java.util.Map;
 
-import finalproject_plants.R;
 
-/**
- * Created by hugh on 2017/10/15.
- */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private TextView topBar;
     private TextView tabnote;
     private TextView tabmap;
     private TextView tabmore;
@@ -33,9 +24,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FrameLayout ly_content;
 
-    private FirstFragment f1,f3,f4;
+    private noteclass f1;
     private MapFragment f2;
-    private FragmentManager fragmentManager;
+    private findclass f3;
+    private moreclass f4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //UI组件初始化与事件绑定
     private void bindView() {
-        topBar = (TextView)this.findViewById(R.id.txt_top);
         tabnote = (TextView)this.findViewById(R.id.txt_note);
         tabmap = (TextView)this.findViewById(R.id.txt_map);
         tabfind = (TextView)this.findViewById(R.id.txt_find);
@@ -96,48 +87,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.txt_note:
                 selected();
                 tabnote.setSelected(true);
-                if(f1==null){
-                    f1 =  new FirstFragment();
-                    f1.set("sd");
+                    f1 =  new noteclass();
                     transaction.add(R.id.fragment_container,f1);
-                }else{
-                    transaction.show(f1);
-                }
                 break;
 
             case R.id.txt_map:
                 selected();
                 tabmap.setSelected(true);
-                if(f2==null){
                     f2 = new MapFragment();
                     transaction.add(R.id.fragment_container,f2);
-                }else{
-                    transaction.show(f2);
-                }
                 break;
 
             case R.id.txt_find:
                 selected();
                 tabfind.setSelected(true);
-                if(f3==null){
-                    f3 = new FirstFragment();
-                    f3.set("3");
+                    f3 = new findclass();
                     transaction.add(R.id.fragment_container,f3);
-                }else{
-                    transaction.show(f3);
-                }
                 break;
 
             case R.id.txt_more:
                 selected();
                 tabmore.setSelected(true);
-                if(f4==null){
-                    f4 = new FirstFragment();
-                    f4.set("4");
+                    f4 = new moreclass();
                     transaction.add(R.id.fragment_container,f4);
-                }else{
-                    transaction.show(f4);
-                }
                 break;
         }
 

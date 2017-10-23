@@ -21,7 +21,7 @@ import android.view.ViewGroup;
  * Created by zhang on 2017/10/22.
  */
 
-public class MapFragment extends Fragment {
+public class mapclass extends Fragment {
 
     // 百度地图相关
     private MapView mMapView = null;
@@ -78,7 +78,7 @@ public class MapFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        View view = inflater.inflate(R.layout.map_fragment, container, false);
+        View view = inflater.inflate(R.layout.map, container, false);
         InitiMapView(view); //初始化地图相关内容
         InitiMapLocation(); //初始化地图定位相关内容
         mBaiduMap.setMyLocationEnabled(true);//开启定位图层

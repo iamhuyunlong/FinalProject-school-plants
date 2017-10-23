@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">FinalProject-plants</string>
-    <string name="information">hh</string>
+    <string name="photinia">石楠</string>
+    <string name="planch">杜鹃</string>
+    <string name="jacq">月季</string>
+    <string name="hance">黄馨</string>
+    <string name="linn">广玉兰</string>
+
+
+    <string name="pho1">这是石楠花</string>
+    <string name="pla1">这是杜鹃</string>
+    <string name="jac1">这是月季</string>
+    <string name="han1">这是黄馨</string>
+    <string name="lin1">这是广玉兰</string>
 </resources>
