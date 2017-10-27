@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plants>
+    <plant id="1">
+        <name>example plant1</name>
+        <description_path>plant_descriptions/plant1.txt</description_path>
+        <photo_path>plant_photos/plant1.jpg</photo_path>
+    </plant>
+    <plant id="2">
+        <name>example plant2</name>
+        <description_path>plant_descriptions/plant2.txt</description_path>
+        <photo_path>plant_photos/plant2.jpg</photo_path>
+    </plant>
+</plants>
