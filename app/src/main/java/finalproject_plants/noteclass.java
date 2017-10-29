@@ -21,42 +21,47 @@ public class noteclass extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.note, container, false);
         phobtn = view.findViewById(R.id.photinia);
+        plabtn = view.findViewById(R.id.planch);
+        jacbtn = view.findViewById(R.id.jacq);
+        hanbtn = view.findViewById(R.id.hance);
+        linbtn = view.findViewById(R.id.linn);
         phobtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(noteclass.this.getActivity(),photinia.class);
+                Intent intent = new Intent(noteclass.this.getActivity(),plants.class);
+                intent.setFlags(1);
                 startActivity(intent);
             }
         });
-        plabtn = view.findViewById(R.id.planch);
         plabtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(noteclass.this.getActivity(),planch.class);
+                Intent intent = new Intent(noteclass.this.getActivity(),plants.class);
+                intent.setFlags(2);
                 startActivity(intent);
             }
         });
-        jacbtn = view.findViewById(R.id.jacq);
         jacbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(noteclass.this.getActivity(),jacq.class);
+                Intent intent = new Intent(noteclass.this.getActivity(),plants.class);
+                intent.setFlags(3);
                 startActivity(intent);
             }
         });
-        hanbtn = view.findViewById(R.id.hance);
         hanbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(noteclass.this.getActivity(),hance.class);
+                Intent intent = new Intent(noteclass.this.getActivity(),plants.class);
+                intent.setFlags(4);
                 startActivity(intent);
             }
         });
-        linbtn = view.findViewById(R.id.linn);
         linbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(noteclass.this.getActivity(),linn.class);
+                Intent intent = new Intent(noteclass.this.getActivity(),plants.class);
+                intent.setFlags(5);
                 startActivity(intent);
             }
         });

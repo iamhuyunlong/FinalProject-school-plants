@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 
 
-public class  linn extends Activity{
+public class results extends Activity{
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.linn);
+        setContentView(R.layout.results);
     }
 }
