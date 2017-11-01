@@ -49,43 +49,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         bindView();
 
-        checkStartStatus();//数据库：查看是否第一次启动，创建数据库
-        testDatabase();//数据库测试用，可以看看怎么使用数据库
-
-
+        createSQL();
     }
     //数据库
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    private void testDatabase(){
-        //找出所有植物
-        List<Plant> plantList = Plant.getAllPalnts();
-        Log.d("mainactivity", "testDatabase: " + plantList.size());
-        for (Plant p : plantList){
-            Log.d("mainactivity", "testDatabase: " + p.getDescriptionPath());
-
-        }
-        //根据名称查找数据
-        Plant plant = Plant.getPlantByName("example plant1");
-        //通过文件处理工具加载对应的描述文字及图片
-        FileUtils fu = new FileUtils(getApplicationContext());
-        String des = fu.getPlantDescription(plant);//描述
-        Bitmap img = fu.getPlantBitmap(plant);//图片
-        Log.d("mainactivity", "testDatabase: " + des);
-    }
-    private void checkStartStatus(){
-        SharedHelper helper = new SharedHelper(getApplicationContext());
-        Boolean is_first_start = helper.readStartStatus();
-        if (is_first_start){
-            //第一次启动时的操作
-            createSQL();
-            helper.saveStartStatus(false);
-        }
-    }
 
     //创建数据库
     private void createSQL(){
         SQLiteDatabase db = Connector.getDatabase();
         try {
+            DataSupport.deleteAll(Plant.class);
             InputStream xmlFile = MainActivity.this.getAssets().open("plants.xml");
             List<Plant> plantList = XmlHelper.getPalntList(xmlFile);
             DataSupport.saveAll(plantList);

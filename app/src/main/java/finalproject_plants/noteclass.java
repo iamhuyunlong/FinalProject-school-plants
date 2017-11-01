@@ -2,6 +2,7 @@ package finalproject_plants;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -21,15 +22,21 @@ public class noteclass extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.note, container, false);
         phobtn = view.findViewById(R.id.photinia);
+        phobtn.setImageBitmap(getPhoto("photinia"));
         plabtn = view.findViewById(R.id.planch);
+        plabtn.setImageBitmap(getPhoto("planch"));
         jacbtn = view.findViewById(R.id.jacq);
+        jacbtn.setImageBitmap(getPhoto("jacq"));
         hanbtn = view.findViewById(R.id.hance);
+        hanbtn.setImageBitmap(getPhoto("hance"));
         linbtn = view.findViewById(R.id.linn);
+        linbtn.setImageBitmap(getPhoto("linn"));
         phobtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(noteclass.this.getActivity(),plants.class);
                 intent.setFlags(1);
+                intent.putExtra("name", "photinia");
                 startActivity(intent);
             }
         });
@@ -38,6 +45,7 @@ public class noteclass extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(noteclass.this.getActivity(),plants.class);
                 intent.setFlags(2);
+                intent.putExtra("name", "planch");
                 startActivity(intent);
             }
         });
@@ -46,6 +54,7 @@ public class noteclass extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(noteclass.this.getActivity(),plants.class);
                 intent.setFlags(3);
+                intent.putExtra("name", "jacq");
                 startActivity(intent);
             }
         });
@@ -54,6 +63,7 @@ public class noteclass extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(noteclass.this.getActivity(),plants.class);
                 intent.setFlags(4);
+                intent.putExtra("name", "hance");
                 startActivity(intent);
             }
         });
@@ -62,9 +72,16 @@ public class noteclass extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(noteclass.this.getActivity(),plants.class);
                 intent.setFlags(5);
+                intent.putExtra("name", "linn");
                 startActivity(intent);
             }
         });
         return view;
+    }
+    private Bitmap getPhoto(String name){
+        Plant plant = Plant.getPlantByName(name);
+        FileUtils fu = new FileUtils(noteclass.this.getActivity().getApplicationContext());
+        Bitmap img = fu.getPlantBitmap(plant);
+        return img;
     }
 }
