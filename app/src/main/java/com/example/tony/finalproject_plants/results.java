@@ -1,8 +1,12 @@
 package com.example.tony.finalproject_plants;
 
-/**
- * Created by zhang on 2017/11/2.
- */
+import android.app.Activity;
+import android.os.Bundle;
 
-public class results {
+public class results extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.results);
+    }
 }
