@@ -20,6 +20,9 @@ android {
 }
 
 dependencies {
+    def appCenterSdkVersion = '1.0.0'
+    compile "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+    compile "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

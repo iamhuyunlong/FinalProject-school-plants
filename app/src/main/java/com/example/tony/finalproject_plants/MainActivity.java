@@ -25,6 +25,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private TextView tabNote;
@@ -42,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SDKInitializer.initialize(getApplicationContext());
+        AppCenter.start(getApplication(), "74907874-da87-4b0e-90f9-16ac61cdb935",
+                Analytics.class, Crashes.class);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main_activity);
 
